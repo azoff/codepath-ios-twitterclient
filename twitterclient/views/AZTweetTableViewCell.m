@@ -39,7 +39,7 @@
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName: self.tweetTextLabel.font}
                                      context:nil];
-    return rect.size.height + 33;
+    return MAX(rect.size.height + 33, 68);
 }
 
 @end

@@ -75,7 +75,7 @@ static NSInteger const SCROLL_THRESHOLD = 5;
 
 - (AZTweet *)tweetForRow:(NSInteger)row
 {
-    if (self.countTweetCurrent < self.countTweetTotal && row >= (self.countTweetTotal - SCROLL_THRESHOLD))
+    if (self.countTweetCurrent < self.countTweetTotal && row >= (self.countTweetCurrent - SCROLL_THRESHOLD))
         [self fetchTweetsWithAnimation:NO];
     return self.tweets[row];
 }
