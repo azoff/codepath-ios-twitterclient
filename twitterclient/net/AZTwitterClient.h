@@ -18,5 +18,8 @@ extern NSString * const AZTwitterClientEventDeauthorized;
 +(instancetype)client;
 -(BOOL)fetchRequestToken;
 -(BOOL)fetchAccessTokenWithURL:(NSURL *)url;
+-(void)homeTimelineWithParameters:(NSDictionary *)parameters
+                          success:(void (^)(NSArray *tweets))success
+                          failure:(void (^)(NSError *error))failure;
 
 @end

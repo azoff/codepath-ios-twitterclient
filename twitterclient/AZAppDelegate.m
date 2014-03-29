@@ -8,7 +8,7 @@
 
 #import "AZAppDelegate.h"
 #import "AZTwitterClient.h"
-#import "AZAppUtil.h"
+#import "AZNotificationUtil.h"
 #import "AZErrorUtil.h"
 #import "AZNavigationController.h"
 
@@ -20,15 +20,15 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [AZAppUtil onEventWithName:AZTwitterClientEventRequested observer:self selector:@selector(didReceiveAuthURL:)];
-    [AZAppUtil onEventWithName:AZTwitterClientEventError observer:self selector:@selector(didReceiveError:)];
+    [AZNotificationUtil onEventWithName:AZTwitterClientEventRequested observer:self selector:@selector(didReceiveAuthURL:)];
+    [AZNotificationUtil onEventWithName:AZTwitterClientEventError observer:self selector:@selector(didReceiveError:)];
     self.window.rootViewController = [AZNavigationController controller];
     return YES;
 }
 
 - (void)didReceiveError:(NSNotification *)notification
 {
-    [AZErrorUtil showError:notification.object delegate:self];
+    [AZErrorUtil showError:notification.object view:self.window];
 }
 
 - (void)didReceiveAuthURL:(NSNotification *)notification

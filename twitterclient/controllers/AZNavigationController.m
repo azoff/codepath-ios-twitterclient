@@ -8,9 +8,9 @@
 
 #import "AZNavigationController.h"
 #import "AZLoginController.h"
-#import "AZTimelineController.h"
+#import "AZHomeTimelineController.h"
 #import "AZTwitterClient.h"
-#import "AZAppUtil.h"
+#import "AZNotificationUtil.h"
 
 @interface AZNavigationController ()
 
@@ -22,8 +22,8 @@
 {
     self = [self initWithRootViewController:[self newStateController]];
     if (self) {
-        [AZAppUtil onEventWithName:AZTwitterClientEventAuthorized observer:self selector:@selector(didChangeState:)];
-        [AZAppUtil onEventWithName:AZTwitterClientEventDeauthorized observer:self selector:@selector(didChangeState:)];
+        [AZNotificationUtil onEventWithName:AZTwitterClientEventAuthorized observer:self selector:@selector(didChangeState:)];
+        [AZNotificationUtil onEventWithName:AZTwitterClientEventDeauthorized observer:self selector:@selector(didChangeState:)];
     }
     return self;
 }
@@ -31,7 +31,7 @@
 - (Class)stateControllerClass
 {
     if ([[AZTwitterClient client] isAuthorized])
-        return [AZTimelineController class];
+        return [AZHomeTimelineController class];
     else
         return [AZLoginController class];
 }

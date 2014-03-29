@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jonathan Azoff. All rights reserved.
 //
 
-#import "AZAppUtil.h"
+#import "AZNotificationUtil.h"
 
-@implementation AZAppUtil
+@implementation AZNotificationUtil
 
 +(void)triggerEventWithName:(NSString *)name data:(id)data
 {

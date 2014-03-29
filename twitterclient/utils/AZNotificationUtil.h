@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AZAppUtil : NSObject
+@interface AZNotificationUtil : NSObject
 
 +(void)triggerEventWithName:(NSString *)name data:(id)data;
 +(void)onEventWithName:(NSString *)name usingBlock:(void (^)(NSNotification *note))block;

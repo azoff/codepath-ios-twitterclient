@@ -7,18 +7,18 @@
 //
 
 #import "AZErrorUtil.h"
+#import "MBProgressHUD.h"
 
 @implementation AZErrorUtil
 
-+(void)showError:(NSError*)error delegate:(id<UIApplicationDelegate>)delegate
++(void)showError:(NSError*)error view:(UIView *)view
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:error.localizedDescription
-                                   delegate:delegate
-                          cancelButtonTitle:@"Dismiss"
-                          otherButtonTitles:nil] show];
-    });
+    [MBProgressHUD hideAllHUDsForView:view animated:YES];
+    id hud = [[MBProgressHUD alloc] initWithView:view];
+    [hud setMode:MBProgressHUDModeText];
+    [hud setLabelText:error.localizedDescription];
+    [hud show:YES];
+    [hud hide:YES afterDelay:1000];
 }
 
 +(NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description

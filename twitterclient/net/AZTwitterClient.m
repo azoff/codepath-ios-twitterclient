@@ -7,9 +7,11 @@
 //
 
 #import "AZTwitterClient.h"
-#import "AZAppUtil.h"
+#import "AZNotificationUtil.h"
 #import "AZInfoUtil.h"
 #import "AZErrorUtil.h"
+#import "AZTweet.h"
+#import "MUJSONResponseSerializer.h"
 
 NSString * const AZTwitterClientEventError        = @"AZTwitterClientEventError";
 NSString * const AZTwitterClientEventRequested    = @"AZTwitterClientEventRequested";
@@ -49,10 +51,10 @@ static NSString * const API_CALLBACK = @"oob";
                               scope:nil
                             success:^(BDBOAuthToken *requestToken) {
                                 NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:API_AUTH_URL, requestToken.token]];
-                                [AZAppUtil triggerEventWithName:AZTwitterClientEventRequested data:authURL];
+                                [AZNotificationUtil triggerEventWithName:AZTwitterClientEventRequested data:authURL];
                             }
                             failure:^(NSError *error) {
-                                [AZAppUtil triggerEventWithName:AZTwitterClientEventError data:error];
+                                [AZNotificationUtil triggerEventWithName:AZTwitterClientEventError data:error];
                             }];
     return YES;
 }
@@ -74,10 +76,10 @@ static NSString * const API_CALLBACK = @"oob";
                             method:@"POST"
                       requestToken:requestToken
                            success:^(BDBOAuthToken *accessToken) {
-                               [AZAppUtil triggerEventWithName:AZTwitterClientEventAuthorized data:self];
+                               [AZNotificationUtil triggerEventWithName:AZTwitterClientEventAuthorized data:self];
                            }
                            failure:^(NSError *error) {
-                               [AZAppUtil triggerEventWithName:AZTwitterClientEventError data:error];
+                               [AZNotificationUtil triggerEventWithName:AZTwitterClientEventError data:error];
                            }];
     return YES;
 }
@@ -86,9 +88,39 @@ static NSString * const API_CALLBACK = @"oob";
 {
     BOOL deauthed = [self deauthorize];
     if (deauthed) {
-        [AZAppUtil triggerEventWithName:AZTwitterClientEventDeauthorized data:self];
+        [AZNotificationUtil triggerEventWithName:AZTwitterClientEventDeauthorized data:self];
     }
     return deauthed;
+}
+
+
+-(void)responseObjectOfClass:(Class)responseObjectClass
+                    fromPath:(NSString *)path
+              withParameters:(NSDictionary *)parameters
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure
+{
+    id jsonPath = [NSString stringWithFormat:@"%@.json", path];
+    id responseSerializer = [[MUJSONResponseSerializer alloc] init];
+    [responseSerializer setResponseObjectClass:responseObjectClass];
+    [self setResponseSerializer:responseSerializer];
+    [self GET:jsonPath parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+-(void)homeTimelineWithParameters:(NSDictionary *)parameters
+                          success:(void (^)(NSArray *tweets))success
+                          failure:(void (^)(NSError *error))failure
+{
+    [self responseObjectOfClass:[AZTweet class]
+                       fromPath:@"statuses/home_timeline"
+                 withParameters:parameters
+                        success:success
+                        failure:failure];
 }
 
 @end

@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// AFNetworking-MUJSONResponseSerializer
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_MUJSONResponseSerializer
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_MUJSONResponseSerializer 1
+#define COCOAPODS_VERSION_MINOR_AFNetworking_MUJSONResponseSerializer 0
+#define COCOAPODS_VERSION_PATCH_AFNetworking_MUJSONResponseSerializer 0
+
 // BDBOAuth1Manager
 #define COCOAPODS_POD_AVAILABLE_BDBOAuth1Manager
 #define COCOAPODS_VERSION_MAJOR_BDBOAuth1Manager 1

@@ -11,6 +11,6 @@
 @interface AZErrorUtil : NSObject
 
 +(NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description;
-+(void)showError:(NSError*)error delegate:(id<UIApplicationDelegate>)delegate;
++(void)showError:(NSError*)error view:(UIView *)view;
 
 @end
