@@ -11,16 +11,23 @@
 
 static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
 
+@interface AZTweetTableView ()
+
+@property (nonatomic) AZTweetTableViewCell *dummyCell;
+
+@end
+
 @implementation AZTweetTableView
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.separatorInset = UIEdgeInsetsZero;
         self.dataSource = self;
         self.delegate = self;
-        [self registerNib:[UINib nibWithNibName:CELL_NIB_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NIB_NAME];
+        [self registerNib:[UINib nibWithNibName:CELL_NIB_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NIB_NAME];  
     }
     return self;
 }
@@ -33,7 +40,14 @@ static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return 200; // TODO: base on cell size
+    id tweet;
+    NSInteger count = self.tweetDataSource.countTweetCurrent;
+    NSInteger row   = indexPath.row;
+    if (count > row)
+        tweet = [self.tweetDataSource tweetForRow:row];
+    if (self.dummyCell == nil)
+        self.dummyCell = [self dequeueReusableCellWithIdentifier:CELL_NIB_NAME];
+    return [self.dummyCell heightForTweet:tweet];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

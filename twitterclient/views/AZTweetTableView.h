@@ -14,6 +14,7 @@
 @required
 -(AZTweet *)tweetForRow:(NSInteger)row;
 -(NSInteger)countTweetTotal;
+-(NSInteger)countTweetCurrent;
 
 @end
 

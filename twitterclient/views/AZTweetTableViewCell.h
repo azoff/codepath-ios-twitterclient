@@ -13,4 +13,6 @@
 
 @property (nonatomic, weak) AZTweet *tweet;
 
+-(CGFloat)heightForTweet:(AZTweet *)tweet;
+
 @end

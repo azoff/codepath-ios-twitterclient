@@ -10,7 +10,6 @@
 		472A8265DA944C2DAB541FCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E40A282FD5E4DA78A830C53 /* libPods.a */; };
 		C923B65F18E690DA00B395A6 /* AZTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C923B65E18E690DA00B395A6 /* AZTweet.m */; };
 		C92FE4AC18E6929E00346805 /* AZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4AB18E6929E00346805 /* AZUser.m */; };
-		C92FE4B318E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4B218E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.m */; };
 		C92FE4B618E6975400346805 /* AZRuntimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4B518E6975400346805 /* AZRuntimeUtil.m */; };
 		C92FE4BA18E6B15900346805 /* AZTweetTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4B918E6B15900346805 /* AZTweetTableView.m */; };
 		C92FE4BE18E6B1EF00346805 /* AZTweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4BC18E6B1EF00346805 /* AZTweetTableViewCell.m */; };
@@ -52,8 +51,6 @@
 		C923B65E18E690DA00B395A6 /* AZTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZTweet.m; path = models/AZTweet.m; sourceTree = "<group>"; };
 		C92FE4AA18E6929E00346805 /* AZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUser.h; path = models/AZUser.h; sourceTree = "<group>"; };
 		C92FE4AB18E6929E00346805 /* AZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUser.m; path = models/AZUser.m; sourceTree = "<group>"; };
-		C92FE4B118E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MUJSONResponseSerializer+AZURLParsing.h"; path = "categories/MUJSONResponseSerializer+AZURLParsing.h"; sourceTree = "<group>"; };
-		C92FE4B218E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MUJSONResponseSerializer+AZURLParsing.m"; path = "categories/MUJSONResponseSerializer+AZURLParsing.m"; sourceTree = "<group>"; };
 		C92FE4B418E6975400346805 /* AZRuntimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRuntimeUtil.h; path = utils/AZRuntimeUtil.h; sourceTree = "<group>"; };
 		C92FE4B518E6975400346805 /* AZRuntimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRuntimeUtil.m; path = utils/AZRuntimeUtil.m; sourceTree = "<group>"; };
 		C92FE4B818E6B15900346805 /* AZTweetTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZTweetTableView.h; path = views/AZTweetTableView.h; sourceTree = "<group>"; };
@@ -129,15 +126,6 @@
 			name = models;
 			sourceTree = "<group>";
 		};
-		C92FE4B018E6953300346805 /* categories */ = {
-			isa = PBXGroup;
-			children = (
-				C92FE4B118E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.h */,
-				C92FE4B218E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.m */,
-			);
-			name = categories;
-			sourceTree = "<group>";
-		};
 		C92FE4B718E6B12100346805 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				C92FE4B718E6B12100346805 /* views */,
-				C92FE4B018E6953300346805 /* categories */,
 				C9A61CFB18E5E5BB00BD617C /* AZAppDelegate.h */,
 				C9A61CFC18E5E5BB00BD617C /* AZAppDelegate.m */,
 				C9A61CFE18E5E5BB00BD617C /* Images.xcassets */,
@@ -394,7 +381,6 @@
 				C92FE4B618E6975400346805 /* AZRuntimeUtil.m in Sources */,
 				C9A61D3418E6097800BD617C /* AZLoginController.m in Sources */,
 				C9A61D1D18E5EC0200BD617C /* AZTwitterClient.m in Sources */,
-				C92FE4B318E6958800346805 /* MUJSONResponseSerializer+AZURLParsing.m in Sources */,
 				C9A61D3918E60B2E00BD617C /* AZHomeTimelineController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

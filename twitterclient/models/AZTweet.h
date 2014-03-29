@@ -16,5 +16,6 @@
 @property (nonatomic) NSString * text;
 @property (nonatomic) NSDate * createdDate;
 @property (nonatomic) AZUser * user;
+-(NSString *)createdDatePretty;
 
 @end

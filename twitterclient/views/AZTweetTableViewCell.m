@@ -7,24 +7,39 @@
 //
 
 #import "AZTweetTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
+
+@interface AZTweetTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userFullNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userScreenNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tweetDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+
+@end
 
 @implementation AZTweetTableViewCell
 
 - (void)setTweet:(AZTweet *)tweet
 {
-    NSLog(@"%@", tweet.text);
+    self.tweetTextLabel.text = tweet.text;
+    self.userFullNameLabel.text = tweet.user.name;
+    self.userScreenNameLabel.text = tweet.user.screenName;
+    self.tweetDateLabel.text = tweet.createdDatePretty;
+    [self.userImageView setImageWithURLRequest:tweet.user.profileImageRequest
+                              placeholderImage:nil success:nil failure:nil];
 }
 
-- (void)awakeFromNib
+-(CGFloat)heightForTweet:(AZTweet *)tweet
 {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    id text = tweet == nil ? @"" : tweet.text;
+    CGSize bounds = CGSizeMake(self.tweetTextLabel.frame.size.width, 1000);
+    CGRect rect = [text boundingRectWithSize:bounds
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName: self.tweetTextLabel.font}
+                                     context:nil];
+    return rect.size.height + 33;
 }
 
 @end

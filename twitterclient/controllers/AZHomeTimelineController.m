@@ -28,7 +28,7 @@ static NSInteger const SCROLL_THRESHOLD = 5;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"My Timeline";
+        self.title = @"Home";
         self.tweets = [NSMutableArray array];
         self.tweetCount = 0;
         self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];

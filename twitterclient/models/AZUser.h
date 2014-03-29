@@ -7,7 +7,6 @@
 //
 
 #import "MUJSONResponseSerializer.h"
-#import "MUJSONResponseSerializer+AZURLParsing.h"
 
 @interface AZUser : MUJSONResponseObject
 
@@ -15,5 +14,7 @@
 @property (nonatomic) NSURL * profileImageUrl;
 @property (nonatomic) NSString * screenName;
 @property (nonatomic) NSNumber * twitterID;
+
+-(NSURLRequest *)profileImageRequest;
 
 @end
