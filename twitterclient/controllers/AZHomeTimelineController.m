@@ -11,7 +11,8 @@
 #import "AZErrorUtil.h"
 #import "MBProgressHUD.h"
 
-static NSInteger const SCROLL_THRESHOLD = 5;
+static NSInteger const MAX_ALLOWED_TWEETS = 800;
+static NSInteger const SCROLL_THRESHOLD   = 5;
 
 @interface AZHomeTimelineController ()
 
@@ -33,7 +34,6 @@ static NSInteger const SCROLL_THRESHOLD = 5;
         self.tweetCount = 0;
         self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
         self.progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
-        [self.view addSubview:self.tweetTableView];
     }
     return self;
 }
@@ -41,7 +41,9 @@ static NSInteger const SCROLL_THRESHOLD = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tweetTableView.tweetDataSource = self;
+    self.tweetTableView.delegate   = self;
+    self.tweetTableView.dataSource = self;
+    [self.tweetTableView addRefreshTarget:self action:@selector(refreshTweets)];
     [self fetchTweetsWithAnimation:YES];
 }
 
@@ -61,7 +63,9 @@ static NSInteger const SCROLL_THRESHOLD = 5;
     [client homeTimelineWithParameters:params success:^(NSArray *tweets) {
         [self.tweets addObjectsFromArray:tweets];
         [self.tweetTableView reloadData];
-        [self.progressHUD hide:YES];
+        [self.tweetTableView.refreshControl endRefreshing];
+        if (animated)
+            [self.progressHUD hide:YES];
     } failure:^(NSError *error) {
         [AZErrorUtil showError:error view:self.view];
     }];
@@ -73,27 +77,43 @@ static NSInteger const SCROLL_THRESHOLD = 5;
     }
 }
 
-- (AZTweet *)tweetForRow:(NSInteger)row
+- (AZTweet *)tweetForRowAtIndexPath:(NSIndexPath *)path
 {
-    if (self.countTweetCurrent < self.countTweetTotal && row >= (self.countTweetCurrent - SCROLL_THRESHOLD))
-        [self fetchTweetsWithAnimation:NO];
-    return self.tweets[row];
+    return self.tweetCount > path.row ? self.tweets[path.row] : nil;
 }
 
-- (NSInteger)countTweetTotal
-{
-    return self.countTweetCurrent == 0 ? 0 : 800; // max tweets for home timeline
-}
 
-- (NSInteger)countTweetCurrent
+- (NSInteger)tweetCount
 {
     return self.tweets.count;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)refreshTweets
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.tweets removeAllObjects];
+    [self fetchTweetsWithAnimation:NO];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return [self.tweetTableView heightForTweet:[self tweetForRowAtIndexPath:indexPath]];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tweetCount == 0 ? 0 : MAX_ALLOWED_TWEETS;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tweetCount > 0 && indexPath.row >= (self.tweetCount - SCROLL_THRESHOLD))
+        [self fetchTweetsWithAnimation:NO];
+    return [self.tweetTableView cellForRowAtIndexPath:indexPath withTweet:[self tweetForRowAtIndexPath:indexPath]];
 }
 
 @end

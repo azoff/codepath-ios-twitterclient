@@ -7,7 +7,6 @@
 //
 
 #import "AZTweetTableView.h"
-#import "AZTweetTableViewCell.h"
 
 static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
 
@@ -25,46 +24,36 @@ static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
     if (self) {
         self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.separatorInset = UIEdgeInsetsZero;
-        self.dataSource = self;
-        self.delegate = self;
-        [self registerNib:[UINib nibWithNibName:CELL_NIB_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NIB_NAME];  
+        id nib = [UINib nibWithNibName:CELL_NIB_NAME bundle:[NSBundle mainBundle]];
+        [self registerNib:nib forCellReuseIdentifier:CELL_NIB_NAME];
+
+        //NOTE: using a temp table view controller makes the behavior less janky
+        UITableViewController *temp = [[UITableViewController alloc] init];
+        temp.tableView = self;
+        temp.refreshControl = [[UIRefreshControl alloc] init];
+        [self addSubview: temp.refreshControl];
+        _refreshControl = temp.refreshControl;
     }
     return self;
 }
 
-- (void)setTweetDataSource:(id<AZTweetDataSource>)tweetDataSource
+- (AZTweetTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath withTweet:(AZTweet *)tweet
 {
-    _tweetDataSource = tweetDataSource;
-    [self reloadData];
+    AZTweetTableViewCell *cell = [self dequeueReusableCellWithIdentifier:CELL_NIB_NAME forIndexPath:indexPath];
+    cell.tweet = tweet;
+    return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)addRefreshTarget:(id)target action:(SEL)action
 {
-    id tweet;
-    NSInteger count = self.tweetDataSource.countTweetCurrent;
-    NSInteger row   = indexPath.row;
-    if (count > row)
-        tweet = [self.tweetDataSource tweetForRow:row];
+    [self.refreshControl addTarget:target action:action forControlEvents:UIControlEventValueChanged];
+}
+
+- (CGFloat)heightForTweet:(AZTweet *)tweetOrNil
+{
     if (self.dummyCell == nil)
         self.dummyCell = [self dequeueReusableCellWithIdentifier:CELL_NIB_NAME];
-    return [self.dummyCell heightForTweet:tweet];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.tweetDataSource.countTweetTotal;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    AZTweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_NIB_NAME forIndexPath:indexPath];
-    cell.tweet = [self.tweetDataSource tweetForRow:indexPath.row];
-    return cell;
+    return [self.dummyCell heightForTweet:tweetOrNil];
 }
 
 @end

@@ -8,18 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AZTweet.h"
+#import "AZTweetTableViewCell.h"
 
-@protocol AZTweetDataSource <NSObject>
 
-@required
--(AZTweet *)tweetForRow:(NSInteger)row;
--(NSInteger)countTweetTotal;
--(NSInteger)countTweetCurrent;
+@interface AZTweetTableView : UITableView
 
-@end
+- (AZTweetTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath withTweet:(AZTweet *)tweet;
+- (CGFloat)heightForTweet:(AZTweet *)tweetOrNil;
 
-@interface AZTweetTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, weak, readonly) UIRefreshControl *refreshControl;
 
-@property (nonatomic, weak) id<AZTweetDataSource> tweetDataSource;
+- (void)addRefreshTarget:(id)target action:(SEL)action;
 
 @end
