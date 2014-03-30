@@ -8,10 +8,13 @@
 
 #import "AZTweetDetailsController.h"
 #import "AZUserBanner.h"
+#import "AZTweetBanner.h"
 
 @interface AZTweetDetailsController ()
 
 @property (weak, nonatomic) IBOutlet AZUserBanner *userBanner;
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet AZTweetBanner *tweetBanner;
 
 @end
 
@@ -32,6 +35,8 @@
 {
     [super viewDidLoad];
     self.userBanner.user = self.tweet.user;
+    self.tweetTextLabel.text = self.tweet.text;
+    self.tweetBanner.tweet = self.tweet;
 }
 
 - (void)didReceiveMemoryWarning

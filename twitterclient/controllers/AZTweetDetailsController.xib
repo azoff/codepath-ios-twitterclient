@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZTweetDetailsController">
             <connections>
+                <outlet property="tweetBanner" destination="GPK-hx-c0i" id="CIW-p0-BrO"/>
+                <outlet property="tweetTextLabel" destination="EhE-aV-nqB" id="WuE-HW-kMH"/>
                 <outlet property="userBanner" destination="Idw-TU-838" id="Jl4-A6-OU4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,19 +25,33 @@
                         <constraint firstAttribute="height" constant="68" id="EL0-Vg-Iby"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhE-aV-nqB">
-                    <rect key="frame" x="139" y="186" width="42" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Body" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="EhE-aV-nqB">
+                    <rect key="frame" x="10" y="68" width="300" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPK-hx-c0i" customClass="AZTweetBanner">
+                    <rect key="frame" x="10" y="100" width="300" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="nmH-Yk-XzP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="EhE-aV-nqB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="56r-95-7wo"/>
+                <constraint firstItem="EhE-aV-nqB" firstAttribute="top" secondItem="Idw-TU-838" secondAttribute="bottom" id="8nh-EX-7UL"/>
+                <constraint firstItem="GPK-hx-c0i" firstAttribute="top" secondItem="EhE-aV-nqB" secondAttribute="bottom" constant="8" id="CrC-T2-8nG"/>
                 <constraint firstAttribute="trailing" secondItem="Idw-TU-838" secondAttribute="trailing" id="YeH-mc-bSi"/>
+                <constraint firstItem="GPK-hx-c0i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hxu-vs-Nkl"/>
                 <constraint firstItem="Idw-TU-838" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jJg-tX-AiE"/>
+                <constraint firstAttribute="trailing" secondItem="EhE-aV-nqB" secondAttribute="trailing" constant="10" id="s7z-Rl-r6w"/>
                 <constraint firstItem="Idw-TU-838" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wc1-rJ-DX1"/>
+                <constraint firstAttribute="trailing" secondItem="GPK-hx-c0i" secondAttribute="trailing" constant="10" id="wpd-Of-hQv"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
