@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AZTweet.h"
 
-@interface AZComposeTweetController : UIViewController
+@interface AZComposeTweetController : UIViewController<UITextViewDelegate>
 
 - (id)initWithTweet:(AZTweet *)tweet;
 

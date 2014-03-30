@@ -41,14 +41,6 @@
     return [[[self stateControllerClass] alloc] init];
 }
 
-- (void)enableComposeBarItemWithTarget:(id)target action:(SEL)action
-{
-    self.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                     initWithTitle:@"Compose"
-                                                     style:UIBarButtonItemStylePlain
-                                                     target:target action:action];
-}
-
 - (void)didChangeState:(NSNotification *)notification
 {
     [self updateState];

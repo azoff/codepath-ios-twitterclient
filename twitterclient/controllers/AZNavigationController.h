@@ -12,6 +12,4 @@
 
 +(instancetype)controller;
 
-- (void)enableComposeBarItemWithTarget:(id)target action:(SEL)action;
-
 @end

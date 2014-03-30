@@ -7,6 +7,7 @@
 //
 
 #import "AZUser.h"
+#import "AZTweet.h"
 #import "BDBOAuth1RequestOperationManager.h"
 
 extern NSString * const AZTwitterClientEventError;
@@ -24,5 +25,8 @@ extern NSString * const AZTwitterClientEventDeauthorized;
                           failure:(void (^)(NSError *error))failure;
 -(void)verifyCredentialsWithSuccess:(void (^)(AZUser *user))success
                             failure:(void (^)(NSError *error))failure;
+-(void)updateStatusWithText:(NSString *)text
+                    success:(void (^)(AZTweet *tweet))success
+                    failure:(void (^)(NSError *error))failure;
 
 @end

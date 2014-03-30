@@ -56,7 +56,6 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[AZNavigationController controller] enableComposeBarItemWithTarget:self action:@selector(compose)];
     self.tweetTableView.delegate   = self;
     self.tweetTableView.dataSource = self;
     [self.tweetTableView addRefreshTarget:self action:@selector(refreshTweets)];
@@ -69,6 +68,7 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
 	NSIndexPath* selection = [self.tweetTableView indexPathForSelectedRow];
 	if (selection)
 		[self.tweetTableView deselectRowAtIndexPath:selection animated:YES];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(compose)];
 }
 
 -(void)compose

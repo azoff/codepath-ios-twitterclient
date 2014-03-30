@@ -94,11 +94,11 @@ static NSString * const API_CALLBACK = @"oob";
 }
 
 
--(void)responseObjectOfClass:(Class)responseObjectClass
-                    fromPath:(NSString *)path
-              withParameters:(NSDictionary *)parameters
-                     success:(void (^)(id responseObject))success
-                     failure:(void (^)(NSError *error))failure
+-(void)GETresponseObjectOfClass:(Class)responseObjectClass
+                       fromPath:(NSString *)path
+                 withParameters:(NSDictionary *)parameters
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure
 {
     id jsonPath = [NSString stringWithFormat:@"%@.json", path];
     id responseSerializer = [[MUJSONResponseSerializer alloc] init];
@@ -106,17 +106,36 @@ static NSString * const API_CALLBACK = @"oob";
     [self setResponseSerializer:responseSerializer];
     [self GET:jsonPath parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
-    }];
+          success(responseObject);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          failure(error);
+      }];
+}
+
+
+-(void)POSTresponseObjectOfClass:(Class)responseObjectClass
+                       fromPath:(NSString *)path
+                 withParameters:(NSDictionary *)parameters
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure
+{
+    id jsonPath = [NSString stringWithFormat:@"%@.json", path];
+    id responseSerializer = [[MUJSONResponseSerializer alloc] init];
+    [responseSerializer setResponseObjectClass:responseObjectClass];
+    [self setResponseSerializer:responseSerializer];
+    [self POST:jsonPath parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          success(responseObject);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          failure(error);
+      }];
 }
 
 -(void)homeTimelineWithParameters:(NSDictionary *)parameters
                           success:(void (^)(NSArray *tweets))success
                           failure:(void (^)(NSError *error))failure
 {
-    [self responseObjectOfClass:[AZTweet class]
+    [self GETresponseObjectOfClass:[AZTweet class]
                        fromPath:@"statuses/home_timeline"
                  withParameters:parameters
                         success:success
@@ -124,13 +143,24 @@ static NSString * const API_CALLBACK = @"oob";
 }
 
 -(void)verifyCredentialsWithSuccess:(void (^)(AZUser *user))success
-                          failure:(void (^)(NSError *error))failure
+                            failure:(void (^)(NSError *error))failure
 {
-    [self responseObjectOfClass:[AZUser class]
-                       fromPath:@"account/verify_credentials"
-                 withParameters:nil
-                        success:success
-                        failure:failure];
+    [self GETresponseObjectOfClass:[AZUser class]
+                          fromPath:@"account/verify_credentials"
+                    withParameters:nil
+                           success:success
+                           failure:failure];
+}
+
+-(void)updateStatusWithText:(NSString *)text
+                            success:(void (^)(AZTweet *tweet))success
+                            failure:(void (^)(NSError *error))failure
+{
+    [self POSTresponseObjectOfClass:[AZTweet class]
+                          fromPath:@"statuses/update"
+                     withParameters:@{@"status": text}
+                           success:success
+                           failure:failure];
 }
 
 @end
