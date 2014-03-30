@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Jonathan Azoff. All rights reserved.
 //
 
+#import "AZUser.h"
 #import "BDBOAuth1RequestOperationManager.h"
 
 extern NSString * const AZTwitterClientEventError;
@@ -21,5 +22,7 @@ extern NSString * const AZTwitterClientEventDeauthorized;
 -(void)homeTimelineWithParameters:(NSDictionary *)parameters
                           success:(void (^)(NSArray *tweets))success
                           failure:(void (^)(NSError *error))failure;
+-(void)verifyCredentialsWithSuccess:(void (^)(AZUser *user))success
+                            failure:(void (^)(NSError *error))failure;
 
 @end

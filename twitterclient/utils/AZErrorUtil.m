@@ -13,12 +13,17 @@
 
 +(void)showError:(NSError*)error view:(UIView *)view
 {
+    if (view == nil)
+        view = [[UIApplication sharedApplication].delegate window];
+    
     [MBProgressHUD hideAllHUDsForView:view animated:YES];
     id hud = [[MBProgressHUD alloc] initWithView:view];
     [hud setMode:MBProgressHUDModeText];
+    [hud setRemoveFromSuperViewOnHide:YES];
     [hud setLabelText:error.localizedDescription];
+    [view addSubview:hud];
     [hud show:YES];
-    [hud hide:YES afterDelay:1000];
+    [hud hide:YES afterDelay:2 * NSEC_PER_SEC];
 }
 
 +(NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description

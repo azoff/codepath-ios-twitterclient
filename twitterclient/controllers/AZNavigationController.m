@@ -41,6 +41,14 @@
     return [[[self stateControllerClass] alloc] init];
 }
 
+- (void)enableComposeBarItemWithTarget:(id)target action:(SEL)action
+{
+    self.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                     initWithTitle:@"Compose"
+                                                     style:UIBarButtonItemStylePlain
+                                                     target:target action:action];
+}
+
 - (void)didChangeState:(NSNotification *)notification
 {
     [self updateState];
@@ -66,7 +74,10 @@
 
 + (instancetype)controller
 {
-    return [[self alloc] init];
+    static id _controller = nil;
+    static dispatch_once_t _predicate;
+    dispatch_once(&_predicate, ^{ _controller = [[self alloc] init]; });
+    return _controller;
 }
 
 @end

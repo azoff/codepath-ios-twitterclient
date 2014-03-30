@@ -123,4 +123,14 @@ static NSString * const API_CALLBACK = @"oob";
                         failure:failure];
 }
 
+-(void)verifyCredentialsWithSuccess:(void (^)(AZUser *user))success
+                          failure:(void (^)(NSError *error))failure
+{
+    [self responseObjectOfClass:[AZUser class]
+                       fromPath:@"account/verify_credentials"
+                 withParameters:nil
+                        success:success
+                        failure:failure];
+}
+
 @end

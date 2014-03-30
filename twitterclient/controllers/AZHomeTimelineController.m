@@ -10,6 +10,9 @@
 #import "AZTwitterClient.h"
 #import "AZErrorUtil.h"
 #import "MBProgressHUD.h"
+#import "AZNavigationController.h"
+#import "AZComposeTweetController.h"
+#import "AZTweetDetailsController.h"
 
 static NSInteger const MAX_ALLOWED_TWEETS = 800;
 static NSInteger const SCROLL_THRESHOLD   = 5;
@@ -30,21 +33,48 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Home";
-        self.tweets = [NSMutableArray array];
-        self.tweetCount = 0;
-        self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        self.progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
     }
     return self;
+}
+
+- (MBProgressHUD *)progressHUD
+{
+    if (_progressHUD != nil)
+        return _progressHUD;
+    _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+    _progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
+    [self.view addSubview:_progressHUD];
+    return _progressHUD;
+}
+
+- (NSMutableArray *)tweets
+{
+    if (_tweets != nil) return _tweets;
+    return _tweets = [NSMutableArray array];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[AZNavigationController controller] enableComposeBarItemWithTarget:self action:@selector(compose)];
     self.tweetTableView.delegate   = self;
     self.tweetTableView.dataSource = self;
     [self.tweetTableView addRefreshTarget:self action:@selector(refreshTweets)];
     [self fetchTweetsWithAnimation:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+	NSIndexPath* selection = [self.tweetTableView indexPathForSelectedRow];
+	if (selection)
+		[self.tweetTableView deselectRowAtIndexPath:selection animated:YES];
+}
+
+-(void)compose
+{
+    id controller = [[AZComposeTweetController alloc] initWithTweet:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)fetchTweetsWithAnimation:(BOOL)animated
@@ -72,6 +102,8 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
     
     if (animated) {
         [client.operationQueue.operations.lastObject setDownloadProgressBlock:^(NSUInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
+            if (totalBytesExpectedToRead < 0)
+                totalBytesExpectedToRead = totalBytesRead;
             self.progressHUD.progress = ((float)totalBytesRead) / totalBytesExpectedToRead;
         }];
     }
@@ -114,6 +146,12 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
     if (self.tweetCount > 0 && indexPath.row >= (self.tweetCount - SCROLL_THRESHOLD))
         [self fetchTweetsWithAnimation:NO];
     return [self.tweetTableView cellForRowAtIndexPath:indexPath withTweet:[self tweetForRowAtIndexPath:indexPath]];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id controller = [[AZTweetDetailsController alloc] initWithTweet:[self tweetForRowAtIndexPath:indexPath]];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

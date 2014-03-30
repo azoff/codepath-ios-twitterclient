@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZUserBanner">
+            <connections>
+                <outlet property="userAliasLabel" destination="U5J-Ct-gou" id="VBd-z9-ekd"/>
+                <outlet property="userImageView" destination="0R2-6M-Da7" id="FYO-zy-jqM"/>
+                <outlet property="userNameLabel" destination="IIV-MG-6zW" id="50s-cJ-C4z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0R2-6M-Da7">
+                    <rect key="frame" x="10" y="10" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="CI6-ZA-iuA"/>
+                        <constraint firstAttribute="width" constant="48" id="g2B-UU-zjN"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="501" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-MG-6zW">
+                    <rect key="frame" x="63" y="10" width="247" height="0.0"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="499" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5J-Ct-gou">
+                    <rect key="frame" x="63" y="10" width="247" height="0.0"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IIV-MG-6zW" firstAttribute="leading" secondItem="0R2-6M-Da7" secondAttribute="trailing" constant="5" id="IRl-RP-ySY"/>
+                <constraint firstAttribute="trailing" secondItem="IIV-MG-6zW" secondAttribute="trailing" constant="10" id="QoY-dv-b8d"/>
+                <constraint firstItem="0R2-6M-Da7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="bBX-Sa-fnT"/>
+                <constraint firstItem="0R2-6M-Da7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="fcT-nJ-6oU"/>
+                <constraint firstItem="U5J-Ct-gou" firstAttribute="top" secondItem="IIV-MG-6zW" secondAttribute="bottom" id="gff-Un-7hI"/>
+                <constraint firstItem="IIV-MG-6zW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="iAp-fY-BmP"/>
+                <constraint firstAttribute="trailing" secondItem="U5J-Ct-gou" secondAttribute="trailing" constant="10" id="kce-cU-5M1"/>
+                <constraint firstItem="U5J-Ct-gou" firstAttribute="leading" secondItem="0R2-6M-Da7" secondAttribute="trailing" constant="5" id="kis-Ym-2Z2"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

@@ -14,6 +14,13 @@
 		C92FE4BA18E6B15900346805 /* AZTweetTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4B918E6B15900346805 /* AZTweetTableView.m */; };
 		C92FE4BE18E6B1EF00346805 /* AZTweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4BC18E6B1EF00346805 /* AZTweetTableViewCell.m */; };
 		C92FE4BF18E6B1EF00346805 /* AZTweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92FE4BD18E6B1EF00346805 /* AZTweetTableViewCell.xib */; };
+		C92FE4C918E7947600346805 /* AZTweetDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4C718E7947600346805 /* AZTweetDetailsController.m */; };
+		C92FE4CA18E7947600346805 /* AZTweetDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92FE4C818E7947600346805 /* AZTweetDetailsController.xib */; };
+		C92FE4CE18E798B300346805 /* AZComposeTweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4CC18E798B300346805 /* AZComposeTweetController.m */; };
+		C92FE4CF18E798B300346805 /* AZComposeTweetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92FE4CD18E798B300346805 /* AZComposeTweetController.xib */; };
+		C92FE4D618E79F4300346805 /* AZUserBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4D418E79F4300346805 /* AZUserBanner.m */; };
+		C92FE4D718E79F4300346805 /* AZUserBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92FE4D518E79F4300346805 /* AZUserBanner.xib */; };
+		C92FE4DA18E7B02D00346805 /* AZCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FE4D918E7B02D00346805 /* AZCurrentUser.m */; };
 		C9A61CED18E5E5BB00BD617C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A61CEC18E5E5BB00BD617C /* Foundation.framework */; };
 		C9A61CEF18E5E5BB00BD617C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A61CEE18E5E5BB00BD617C /* CoreGraphics.framework */; };
 		C9A61CF118E5E5BB00BD617C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A61CF018E5E5BB00BD617C /* UIKit.framework */; };
@@ -58,6 +65,17 @@
 		C92FE4BB18E6B1EF00346805 /* AZTweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZTweetTableViewCell.h; path = views/AZTweetTableViewCell.h; sourceTree = "<group>"; };
 		C92FE4BC18E6B1EF00346805 /* AZTweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZTweetTableViewCell.m; path = views/AZTweetTableViewCell.m; sourceTree = "<group>"; };
 		C92FE4BD18E6B1EF00346805 /* AZTweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZTweetTableViewCell.xib; path = views/AZTweetTableViewCell.xib; sourceTree = "<group>"; };
+		C92FE4C618E7947600346805 /* AZTweetDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZTweetDetailsController.h; path = controllers/AZTweetDetailsController.h; sourceTree = "<group>"; };
+		C92FE4C718E7947600346805 /* AZTweetDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZTweetDetailsController.m; path = controllers/AZTweetDetailsController.m; sourceTree = "<group>"; };
+		C92FE4C818E7947600346805 /* AZTweetDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZTweetDetailsController.xib; path = controllers/AZTweetDetailsController.xib; sourceTree = "<group>"; };
+		C92FE4CB18E798B300346805 /* AZComposeTweetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZComposeTweetController.h; path = controllers/AZComposeTweetController.h; sourceTree = "<group>"; };
+		C92FE4CC18E798B300346805 /* AZComposeTweetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZComposeTweetController.m; path = controllers/AZComposeTweetController.m; sourceTree = "<group>"; };
+		C92FE4CD18E798B300346805 /* AZComposeTweetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZComposeTweetController.xib; path = controllers/AZComposeTweetController.xib; sourceTree = "<group>"; };
+		C92FE4D318E79F4300346805 /* AZUserBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserBanner.h; path = views/AZUserBanner.h; sourceTree = "<group>"; };
+		C92FE4D418E79F4300346805 /* AZUserBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserBanner.m; path = views/AZUserBanner.m; sourceTree = "<group>"; };
+		C92FE4D518E79F4300346805 /* AZUserBanner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZUserBanner.xib; path = views/AZUserBanner.xib; sourceTree = "<group>"; };
+		C92FE4D818E7B02D00346805 /* AZCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZCurrentUser.h; path = models/AZCurrentUser.h; sourceTree = "<group>"; };
+		C92FE4D918E7B02D00346805 /* AZCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZCurrentUser.m; path = models/AZCurrentUser.m; sourceTree = "<group>"; };
 		C9A61CE918E5E5BB00BD617C /* twitterclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A61CEC18E5E5BB00BD617C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9A61CEE18E5E5BB00BD617C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +140,8 @@
 				C923B65E18E690DA00B395A6 /* AZTweet.m */,
 				C92FE4AA18E6929E00346805 /* AZUser.h */,
 				C92FE4AB18E6929E00346805 /* AZUser.m */,
+				C92FE4D818E7B02D00346805 /* AZCurrentUser.h */,
+				C92FE4D918E7B02D00346805 /* AZCurrentUser.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -134,6 +154,9 @@
 				C92FE4BB18E6B1EF00346805 /* AZTweetTableViewCell.h */,
 				C92FE4BC18E6B1EF00346805 /* AZTweetTableViewCell.m */,
 				C92FE4BD18E6B1EF00346805 /* AZTweetTableViewCell.xib */,
+				C92FE4D318E79F4300346805 /* AZUserBanner.h */,
+				C92FE4D418E79F4300346805 /* AZUserBanner.m */,
+				C92FE4D518E79F4300346805 /* AZUserBanner.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -231,6 +254,12 @@
 				C9A61D3618E60B2E00BD617C /* AZHomeTimelineController.h */,
 				C9A61D3718E60B2E00BD617C /* AZHomeTimelineController.m */,
 				C9A61D3818E60B2E00BD617C /* AZHomeTimelineController.xib */,
+				C92FE4C618E7947600346805 /* AZTweetDetailsController.h */,
+				C92FE4C718E7947600346805 /* AZTweetDetailsController.m */,
+				C92FE4C818E7947600346805 /* AZTweetDetailsController.xib */,
+				C92FE4CB18E798B300346805 /* AZComposeTweetController.h */,
+				C92FE4CC18E798B300346805 /* AZComposeTweetController.m */,
+				C92FE4CD18E798B300346805 /* AZComposeTweetController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -314,10 +343,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A61CF718E5E5BB00BD617C /* InfoPlist.strings in Resources */,
+				C92FE4D718E79F4300346805 /* AZUserBanner.xib in Resources */,
+				C92FE4CF18E798B300346805 /* AZComposeTweetController.xib in Resources */,
 				C92FE4BF18E6B1EF00346805 /* AZTweetTableViewCell.xib in Resources */,
 				C9A61CFF18E5E5BB00BD617C /* Images.xcassets in Resources */,
 				C9A61D3518E6097800BD617C /* AZLoginController.xib in Resources */,
 				C9A61D3A18E60B2E00BD617C /* AZHomeTimelineController.xib in Resources */,
+				C92FE4CA18E7947600346805 /* AZTweetDetailsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +403,12 @@
 				C9A61D2118E5FF6C00BD617C /* AZNotificationUtil.m in Sources */,
 				C92FE4AC18E6929E00346805 /* AZUser.m in Sources */,
 				C9A61D3D18E62E8A00BD617C /* AZInfoUtil.m in Sources */,
+				C92FE4CE18E798B300346805 /* AZComposeTweetController.m in Sources */,
 				C92FE4BA18E6B15900346805 /* AZTweetTableView.m in Sources */,
 				C9A61D3018E6069B00BD617C /* AZNavigationController.m in Sources */,
 				C9A61D4018E6391500BD617C /* AZErrorUtil.m in Sources */,
+				C92FE4DA18E7B02D00346805 /* AZCurrentUser.m in Sources */,
+				C92FE4C918E7947600346805 /* AZTweetDetailsController.m in Sources */,
 				C9A61CF918E5E5BB00BD617C /* main.m in Sources */,
 				C92FE4BE18E6B1EF00346805 /* AZTweetTableViewCell.m in Sources */,
 				C9A61CFD18E5E5BB00BD617C /* AZAppDelegate.m in Sources */,
@@ -381,6 +416,7 @@
 				C92FE4B618E6975400346805 /* AZRuntimeUtil.m in Sources */,
 				C9A61D3418E6097800BD617C /* AZLoginController.m in Sources */,
 				C9A61D1D18E5EC0200BD617C /* AZTwitterClient.m in Sources */,
+				C92FE4D618E79F4300346805 /* AZUserBanner.m in Sources */,
 				C9A61D3918E60B2E00BD617C /* AZHomeTimelineController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
