@@ -1,5 +1,5 @@
 //
-//  AZUserBanner.h
+//  AZNibView.h
 //  twitterclient
 //
 //  Created by Jonathan Azoff on 3/29/14.
@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AZUser.h"
-#import "AZNibView.h"
 
-@interface AZUserBanner : AZNibView
+@interface AZNibView : UIView
 
-@property (nonatomic) AZUser *user;
+@property (weak, nonatomic) UIView *nib;
 
 @end

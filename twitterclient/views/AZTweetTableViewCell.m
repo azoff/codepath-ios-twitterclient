@@ -7,7 +7,10 @@
 //
 
 #import "AZTweetTableViewCell.h"
+#import "AZTwitterClient.h"
 #import "UIImageView+AFNetworking.h"
+#import "AZErrorUtil.h"
+#import "AZTweetBanner.h"
 
 @interface AZTweetTableViewCell ()
 
@@ -16,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userScreenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet AZTweetBanner *tweetBanner;
 
 @end
 
@@ -23,12 +27,14 @@
 
 - (void)setTweet:(AZTweet *)tweet
 {
+    _tweet = tweet;
     self.tweetTextLabel.text = tweet.text;
     self.userFullNameLabel.text = tweet.user.name;
     self.userScreenNameLabel.text = tweet.user.screenName;
     self.tweetDateLabel.text = tweet.createdDatePretty;
     [self.userImageView setImageWithURLRequest:tweet.user.profileImageRequest
                               placeholderImage:nil success:nil failure:nil];
+    self.tweetBanner.tweet = tweet;
 }
 
 -(CGFloat)heightForTweet:(AZTweet *)tweet
@@ -39,7 +45,7 @@
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName: self.tweetTextLabel.font}
                                      context:nil];
-    return MAX(rect.size.height + 33, 68);
+    return MAX(rect.size.height + 50, 70);
 }
 
 @end

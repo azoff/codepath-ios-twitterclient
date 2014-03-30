@@ -163,4 +163,48 @@ static NSString * const API_CALLBACK = @"oob";
                            failure:failure];
 }
 
+-(void)createFavoriteTweet:(AZTweet *)tweet
+                   success:(void (^)(AZTweet *tweet))success
+                   failure:(void (^)(NSError *error))failure
+{
+    [self POSTresponseObjectOfClass:[AZTweet class]
+                           fromPath:@"favorites/create"
+                     withParameters:@{@"id": tweet.twitterID}
+                            success:success
+                            failure:failure];
+}
+
+-(void)destroyFavoriteTweet:(AZTweet *)tweet
+                   success:(void (^)(AZTweet *tweet))success
+                   failure:(void (^)(NSError *error))failure
+{
+    [self POSTresponseObjectOfClass:[AZTweet class]
+                           fromPath:@"favorites/destroy"
+                     withParameters:@{@"id": tweet.twitterID}
+                            success:success
+                            failure:failure];
+}
+
+-(void)createRetweet:(AZTweet *)tweet
+            success:(void (^)(AZTweet *))success
+            failure:(void (^)(NSError *))failure
+{
+    [self POSTresponseObjectOfClass:[AZTweet class]
+                           fromPath:[NSString stringWithFormat:@"statuses/retweet/%@", tweet.twitterID]
+                     withParameters:nil
+                            success:success
+                            failure:failure];
+}
+
+-(void)destroyRetweet:(AZTweet *)tweet
+            success:(void (^)(AZTweet *))success
+            failure:(void (^)(NSError *))failure
+{
+    [self POSTresponseObjectOfClass:[AZTweet class]
+                           fromPath:[NSString stringWithFormat:@"statuses/destroy/%@", tweet.retweetID]
+                     withParameters:nil
+                            success:success
+                            failure:failure];
+}
+
 @end

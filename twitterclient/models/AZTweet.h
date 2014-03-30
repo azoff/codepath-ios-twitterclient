@@ -16,6 +16,7 @@
 @property (nonatomic) NSString * text;
 @property (nonatomic) NSDate * createdDate;
 @property (nonatomic) AZUser * user;
+@property (nonatomic) NSNumber * retweetID;
 @property (nonatomic) BOOL retweeted;
 @property (nonatomic) BOOL favorited;
 

@@ -49,23 +49,36 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sg5-eB-nWq" customClass="AZTweetBanner">
+                        <rect key="frame" x="63" y="58" width="247" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="LDg-VF-Pvi"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="MQn-pK-eKx" firstAttribute="leading" secondItem="76U-HF-cxr" secondAttribute="trailing" constant="5" id="49B-eW-ppH"/>
                     <constraint firstItem="upV-yf-5hh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8ij-AC-AXi"/>
                     <constraint firstAttribute="trailing" secondItem="M08-gw-gra" secondAttribute="trailing" constant="10" id="CL9-ox-Wnn"/>
                     <constraint firstItem="M08-gw-gra" firstAttribute="leading" secondItem="upV-yf-5hh" secondAttribute="trailing" constant="5" id="HBy-gi-6bh"/>
+                    <constraint firstAttribute="trailing" secondItem="sg5-eB-nWq" secondAttribute="trailing" constant="10" id="JQG-Fp-Ay3"/>
                     <constraint firstItem="MQn-pK-eKx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Lip-vF-gLg"/>
                     <constraint firstItem="76U-HF-cxr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="UAt-d0-lcL"/>
                     <constraint firstItem="upV-yf-5hh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Z8t-xh-U7M"/>
                     <constraint firstItem="KyK-rO-x5G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="id6-hP-NPm"/>
                     <constraint firstItem="76U-HF-cxr" firstAttribute="leading" secondItem="upV-yf-5hh" secondAttribute="trailing" constant="5" id="mzg-7f-HIp"/>
+                    <constraint firstItem="sg5-eB-nWq" firstAttribute="leading" secondItem="upV-yf-5hh" secondAttribute="trailing" constant="5" id="oF4-DI-P0e"/>
                     <constraint firstAttribute="trailing" secondItem="KyK-rO-x5G" secondAttribute="trailing" constant="10" id="q5a-OW-mG0"/>
                     <constraint firstItem="KyK-rO-x5G" firstAttribute="leading" secondItem="MQn-pK-eKx" secondAttribute="trailing" constant="5" id="r4G-Ef-wna"/>
                     <constraint firstItem="M08-gw-gra" firstAttribute="top" secondItem="MQn-pK-eKx" secondAttribute="bottom" id="t9W-A8-Ifq"/>
+                    <constraint firstItem="sg5-eB-nWq" firstAttribute="top" secondItem="M08-gw-gra" secondAttribute="bottom" constant="2" id="y6T-vp-FUI"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
+                <outlet property="tweetBanner" destination="sg5-eB-nWq" id="Dyc-PZ-MKC"/>
                 <outlet property="tweetDateLabel" destination="KyK-rO-x5G" id="Zn9-7F-iOF"/>
                 <outlet property="tweetTextLabel" destination="M08-gw-gra" id="BMB-ng-1sN"/>
                 <outlet property="userFullNameLabel" destination="76U-HF-cxr" id="0vE-Oi-oJD"/>

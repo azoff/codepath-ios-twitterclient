@@ -48,9 +48,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (self.tweet) self.userBanner.user = self.tweet.user;
-    else if (![self useCurrentUser])
+    if (![self useCurrentUser])
         [AZNotificationUtil onEventWithName:AZCurrentUserEventLoaded observer:self selector:@selector(useCurrentUser)];
+    if (self.tweet)
+        self.tweetTextView.text = [NSString stringWithFormat:@"%@ ", self.tweet.user.screenName];
     self.tweetTextView.delegate = self;
     [self.tweetTextView becomeFirstResponder];
 }

@@ -1,5 +1,5 @@
 //
-//  AZUserBanner.h
+//  AZTweetBanner.h
 //  twitterclient
 //
 //  Created by Jonathan Azoff on 3/29/14.
@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AZUser.h"
+#import "AZTweet.h"
 #import "AZNibView.h"
 
-@interface AZUserBanner : AZNibView
+@interface AZTweetBanner : AZNibView
 
-@property (nonatomic) AZUser *user;
+@property (nonatomic) AZTweet *tweet;
 
 @end

@@ -23,7 +23,7 @@
     [hud setLabelText:error.localizedDescription];
     [view addSubview:hud];
     [hud show:YES];
-    [hud hide:YES afterDelay:2 * NSEC_PER_SEC];
+    [hud hide:YES afterDelay:2];
 }
 
 +(NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description

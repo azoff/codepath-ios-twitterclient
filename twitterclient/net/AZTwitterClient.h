@@ -28,5 +28,17 @@ extern NSString * const AZTwitterClientEventDeauthorized;
 -(void)updateStatusWithText:(NSString *)text
                     success:(void (^)(AZTweet *tweet))success
                     failure:(void (^)(NSError *error))failure;
+-(void)createFavoriteTweet:(AZTweet *)tweet
+                   success:(void (^)(AZTweet *tweet))success
+                   failure:(void (^)(NSError *error))failure;
+-(void)destroyFavoriteTweet:(AZTweet *)tweet
+                    success:(void (^)(AZTweet *tweet))success
+                    failure:(void (^)(NSError *error))failure;
+-(void)createRetweet:(AZTweet *)tweet
+                    success:(void (^)(AZTweet *tweet))success
+                    failure:(void (^)(NSError *error))failure;
+-(void)destroyRetweet:(AZTweet *)tweet
+            success:(void (^)(AZTweet *tweet))success
+            failure:(void (^)(NSError *error))failure;
 
 @end

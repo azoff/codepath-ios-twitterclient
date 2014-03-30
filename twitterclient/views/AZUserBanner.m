@@ -20,20 +20,6 @@
 
 @implementation AZUserBanner
 
-- (id)initWithCoder:(NSCoder*)coder
-{
-    self = [super initWithCoder:coder];
-    return [self loadNib];
-}
-
-- (id)loadNib
-{
-    id bundle = [NSBundle mainBundle];
-    [bundle loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-    self.view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    [self addSubview:self.view];
-    return self;
-}
 
 -(void)setUser:(AZUser *)user
 {
