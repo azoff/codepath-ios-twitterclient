@@ -13,7 +13,7 @@
 #import "AZNavigationController.h"
 #import "AZComposeTweetController.h"
 #import "AZTweetDetailsController.h"
-#import "AZMenuController.h"
+#import "AZRootController.h"
 
 static NSInteger const MAX_ALLOWED_TWEETS = 800;
 static NSInteger const SCROLL_THRESHOLD   = 5;
@@ -69,7 +69,7 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
 	NSIndexPath* selection = [self.tweetTableView indexPathForSelectedRow];
 	if (selection)
 		[self.tweetTableView deselectRowAtIndexPath:selection animated:YES];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:[AZMenuController controller] action:@selector(toggleMenuView)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:[AZRootController controller] action:@selector(toggleMenuView)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(compose)];
 }
 

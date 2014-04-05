@@ -1,5 +1,5 @@
 //
-//  AZMenuController.h
+//  AZMenuontroller.h
 //  twitterclient
 //
 //  Created by Jonathan Azoff on 4/4/14.
@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString* AZMenuControllerSelectionEvent;
+
+typedef NS_OPTIONS(NSUInteger, AZMenuControllerSelection) {
+    AZMenuControllerSelectionTimeline,
+    AZMenuControllerSelectionMentions,
+    AZMenuControllerSelectionProfile
+};
+
 @interface AZMenuController : UIViewController
 
 + (instancetype)controller;
-- (void)toggleMenuView;
 
 @end

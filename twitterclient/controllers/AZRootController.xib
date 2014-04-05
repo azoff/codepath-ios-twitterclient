@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZRootController">
+            <connections>
+                <outlet property="contentView" destination="LfP-xx-gzI" id="5u5-qi-g0Q"/>
+                <outlet property="leadingConstraint" destination="Wp9-NP-DUB" id="JVk-Fi-dzt"/>
+                <outlet property="menuView" destination="QYC-HP-uvO" id="pQZ-D5-hFT"/>
+                <outlet property="trailingConstraint" destination="HbQ-Vk-RfZ" id="v1c-YV-9Tz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYC-HP-uvO" userLabel="Menu Container">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="Rz3-vm-3j3"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfP-xx-gzI" userLabel="Content Container">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="LfP-xx-gzI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Jc-9e-ENe"/>
+                <constraint firstAttribute="bottom" secondItem="LfP-xx-gzI" secondAttribute="bottom" id="5EP-7a-Dq1"/>
+                <constraint firstItem="QYC-HP-uvO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Mk-37-nYr"/>
+                <constraint firstItem="QYC-HP-uvO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DBh-SB-yrk"/>
+                <constraint firstAttribute="trailing" secondItem="LfP-xx-gzI" secondAttribute="trailing" id="HbQ-Vk-RfZ"/>
+                <constraint firstItem="LfP-xx-gzI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wp9-NP-DUB"/>
+                <constraint firstAttribute="bottom" secondItem="QYC-HP-uvO" secondAttribute="bottom" id="tUv-8o-3aO"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="E3m-qQ-4Gv" appends="YES" id="V5g-RF-kKA"/>
+            </connections>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="E3m-qQ-4Gv">
+            <connections>
+                <action selector="onDrag:" destination="-1" id="3on-cT-PrS"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

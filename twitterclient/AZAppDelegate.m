@@ -10,7 +10,7 @@
 #import "AZTwitterClient.h"
 #import "AZNotificationUtil.h"
 #import "AZErrorUtil.h"
-#import "AZMenuController.h"
+#import "AZRootController.h"
 
 @implementation AZAppDelegate
 
@@ -22,7 +22,7 @@
     [self.window makeKeyAndVisible];
     [AZNotificationUtil onEventWithName:AZTwitterClientEventRequested observer:self selector:@selector(didReceiveAuthURL:)];
     [AZNotificationUtil onEventWithName:AZTwitterClientEventError observer:self selector:@selector(didReceiveError:)];
-    self.window.rootViewController = [AZMenuController controller];
+    self.window.rootViewController = [AZRootController controller];
     return YES;
 }
 

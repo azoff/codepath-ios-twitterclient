@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZMenuController">
             <connections>
-                <outlet property="contentView" destination="LfP-xx-gzI" id="5u5-qi-g0Q"/>
-                <outlet property="leadingConstraint" destination="Wp9-NP-DUB" id="JVk-Fi-dzt"/>
-                <outlet property="menuView" destination="QYC-HP-uvO" id="pQZ-D5-hFT"/>
-                <outlet property="trailingConstraint" destination="HbQ-Vk-RfZ" id="v1c-YV-9Tz"/>
+                <outlet property="mentionsButton" destination="iq4-FS-bFv" id="qMw-sz-16U"/>
+                <outlet property="profileButton" destination="6ua-sT-4eQ" id="0od-8p-JSo"/>
+                <outlet property="timelineButton" destination="mc9-xs-IJh" id="Ilv-6S-Fdb"/>
+                <outlet property="userBanner" destination="iLy-ym-79y" id="Q8t-q0-gGM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,41 +18,75 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYC-HP-uvO" userLabel="Menu Container">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="568"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLy-ym-79y" customClass="AZUserBanner">
+                    <rect key="frame" x="0.0" y="20" width="320" height="68"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="Rz3-vm-3j3"/>
+                        <constraint firstAttribute="height" constant="68" id="IUp-7c-x59"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfP-xx-gzI" userLabel="Content Container">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.270588249" green="0.84313732389999996" blue="0.392156899" alpha="1" colorSpace="deviceRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-xs-IJh">
+                    <rect key="frame" x="15" y="106" width="68" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Timeline">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButton:" destination="-1" eventType="touchUpInside" id="GAR-zc-OdT"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-71-0db">
+                    <rect key="frame" x="3" y="96" width="250" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.88227075729927007" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq4-FS-bFv">
+                    <rect key="frame" x="15" y="156" width="75" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Mentions">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButton:" destination="-1" eventType="touchUpInside" id="LBf-cX-iHU"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-Iq-gff">
+                    <rect key="frame" x="3" y="146" width="250" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.88227075730000004" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ua-sT-4eQ">
+                    <rect key="frame" x="15" y="206" width="51" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Profile">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButton:" destination="-1" eventType="touchUpInside" id="d70-VI-uNG"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh8-ZX-s1v">
+                    <rect key="frame" x="3" y="196" width="250" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.88227075730000004" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iaf-JG-nAN">
+                    <rect key="frame" x="3" y="246" width="250" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.88227075730000004" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <gestureRecognizers/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="LfP-xx-gzI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Jc-9e-ENe"/>
-                <constraint firstAttribute="bottom" secondItem="LfP-xx-gzI" secondAttribute="bottom" id="5EP-7a-Dq1"/>
-                <constraint firstItem="QYC-HP-uvO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Mk-37-nYr"/>
-                <constraint firstItem="QYC-HP-uvO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DBh-SB-yrk"/>
-                <constraint firstAttribute="trailing" secondItem="LfP-xx-gzI" secondAttribute="trailing" id="HbQ-Vk-RfZ"/>
-                <constraint firstItem="LfP-xx-gzI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wp9-NP-DUB"/>
-                <constraint firstAttribute="bottom" secondItem="QYC-HP-uvO" secondAttribute="bottom" id="tUv-8o-3aO"/>
+                <constraint firstItem="iLy-ym-79y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="7xC-f2-i6O"/>
+                <constraint firstAttribute="trailing" secondItem="iLy-ym-79y" secondAttribute="trailing" id="EmL-hk-0YD"/>
+                <constraint firstItem="iLy-ym-79y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aW9-gc-yIS"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="E3m-qQ-4Gv" appends="YES" id="V5g-RF-kKA"/>
-            </connections>
         </view>
-        <panGestureRecognizer minimumNumberOfTouches="1" id="E3m-qQ-4Gv">
-            <connections>
-                <action selector="onDrag:" destination="-1" id="3on-cT-PrS"/>
-            </connections>
-        </panGestureRecognizer>
     </objects>
 </document>

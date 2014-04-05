@@ -11,6 +11,9 @@
 #import "AZHomeTimelineController.h"
 #import "AZTwitterClient.h"
 #import "AZNotificationUtil.h"
+#import "AZMenuController.h"
+#import "AZErrorUtil.h"
+#import "AZProfileController.h"
 
 @interface AZNavigationController ()
 
@@ -20,10 +23,11 @@
 
 - (id)init
 {
-    self = [self initWithRootViewController:[self newStateController]];
+    self = [self initWithRootViewController:[[[self stateControllerClass] alloc] init]];
     if (self) {
         [AZNotificationUtil onEventWithName:AZTwitterClientEventAuthorized observer:self selector:@selector(didChangeState:)];
         [AZNotificationUtil onEventWithName:AZTwitterClientEventDeauthorized observer:self selector:@selector(didChangeState:)];
+        [AZNotificationUtil onEventWithName:AZMenuControllerSelectionEvent observer:self selector:@selector(didMenuChange:)];
     }
     return self;
 }
@@ -36,20 +40,45 @@
         return [AZLoginController class];
 }
 
-- (UIViewController *)newStateController
-{
-    return [[[self stateControllerClass] alloc] init];
-}
-
 - (void)didChangeState:(NSNotification *)notification
 {
     [self updateState];
 }
 
+- (void)didMenuChange:(NSNotification *)notification
+{
+    Class controllerClass;
+    AZMenuControllerSelection code = [notification.object integerValue];
+    switch(code) {
+        case AZMenuControllerSelectionTimeline:
+            controllerClass = [AZHomeTimelineController class];
+            break;
+        case AZMenuControllerSelectionMentions:
+            // TODO
+            break;
+        case AZMenuControllerSelectionProfile:
+            controllerClass = [AZProfileController class];
+            break;
+    }
+    
+    if (controllerClass == nil) {
+        [AZErrorUtil showError:[AZErrorUtil errorWithDomain:@"menu" code:code description:@"Unimplemented Menu"] view:self.view];
+    } else {
+        [self changeRootViewController:controllerClass];
+    }
+    
+}
+
+- (void)changeRootViewController:(Class)controllerClass
+{
+    if (controllerClass != [self.viewControllers[0] class]) {
+        [self setViewControllers:@[[[controllerClass alloc] init]] animated:YES];
+    }
+}
+
 - (void)updateState
 {
-    if ([self stateControllerClass] != [self.viewControllers[0] class])
-        [self setViewControllers:@[[self newStateController]] animated:YES];
+    [self changeRootViewController:[self stateControllerClass]];
 }
 
 - (void)viewDidLoad
