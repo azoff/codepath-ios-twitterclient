@@ -66,10 +66,7 @@
 
 + (instancetype)controller
 {
-    static id _controller = nil;
-    static dispatch_once_t _predicate;
-    dispatch_once(&_predicate, ^{ _controller = [[self alloc] init]; });
-    return _controller;
+   return [[self alloc] init];
 }
 
 @end

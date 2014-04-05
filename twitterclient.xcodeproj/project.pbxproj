@@ -43,6 +43,8 @@
 		C9A61D3A18E60B2E00BD617C /* AZHomeTimelineController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A61D3818E60B2E00BD617C /* AZHomeTimelineController.xib */; };
 		C9A61D3D18E62E8A00BD617C /* AZInfoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A61D3C18E62E8A00BD617C /* AZInfoUtil.m */; };
 		C9A61D4018E6391500BD617C /* AZErrorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A61D3F18E6391500BD617C /* AZErrorUtil.m */; };
+		C9B01AEC18EF29AA0086E066 /* AZMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01AEA18EF29AA0086E066 /* AZMenuController.m */; };
+		C9B01AED18EF29AA0086E066 /* AZMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01AEB18EF29AA0086E066 /* AZMenuController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,9 @@
 		C9A61D3C18E62E8A00BD617C /* AZInfoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZInfoUtil.m; path = utils/AZInfoUtil.m; sourceTree = "<group>"; };
 		C9A61D3E18E6391500BD617C /* AZErrorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZErrorUtil.h; path = utils/AZErrorUtil.h; sourceTree = "<group>"; };
 		C9A61D3F18E6391500BD617C /* AZErrorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZErrorUtil.m; path = utils/AZErrorUtil.m; sourceTree = "<group>"; };
+		C9B01AE918EF29AA0086E066 /* AZMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMenuController.h; path = controllers/AZMenuController.h; sourceTree = "<group>"; };
+		C9B01AEA18EF29AA0086E066 /* AZMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZMenuController.m; path = controllers/AZMenuController.m; sourceTree = "<group>"; };
+		C9B01AEB18EF29AA0086E066 /* AZMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZMenuController.xib; path = controllers/AZMenuController.xib; sourceTree = "<group>"; };
 		FFDD4DF9D02F4A8E9A7885D1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,6 +278,9 @@
 				C92FE4CB18E798B300346805 /* AZComposeTweetController.h */,
 				C92FE4CC18E798B300346805 /* AZComposeTweetController.m */,
 				C92FE4CD18E798B300346805 /* AZComposeTweetController.xib */,
+				C9B01AE918EF29AA0086E066 /* AZMenuController.h */,
+				C9B01AEA18EF29AA0086E066 /* AZMenuController.m */,
+				C9B01AEB18EF29AA0086E066 /* AZMenuController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				C92FE4CF18E798B300346805 /* AZComposeTweetController.xib in Resources */,
 				C92FE4BF18E6B1EF00346805 /* AZTweetTableViewCell.xib in Resources */,
 				C9A61CFF18E5E5BB00BD617C /* Images.xcassets in Resources */,
+				C9B01AED18EF29AA0086E066 /* AZMenuController.xib in Resources */,
 				C9A61D3518E6097800BD617C /* AZLoginController.xib in Resources */,
 				C9A61D3A18E60B2E00BD617C /* AZHomeTimelineController.xib in Resources */,
 				C92FE4EF18E7F70100346805 /* AZTweetBanner.xib in Resources */,
@@ -419,6 +428,7 @@
 				C92FE4AC18E6929E00346805 /* AZUser.m in Sources */,
 				C92FE4DD18E7CCD800346805 /* AZDispatchUtil.m in Sources */,
 				C9A61D3D18E62E8A00BD617C /* AZInfoUtil.m in Sources */,
+				C9B01AEC18EF29AA0086E066 /* AZMenuController.m in Sources */,
 				C92FE4CE18E798B300346805 /* AZComposeTweetController.m in Sources */,
 				C92FE4E318E7EE6900346805 /* AZNibView.m in Sources */,
 				C92FE4BA18E6B15900346805 /* AZTweetTableView.m in Sources */,
