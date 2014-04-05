@@ -30,7 +30,7 @@
     _tweet = tweet;
     self.tweetTextLabel.text = tweet.text;
     self.userFullNameLabel.text = tweet.user.name;
-    self.userScreenNameLabel.text = tweet.user.screenName;
+    self.userScreenNameLabel.text = tweet.user.atName;
     self.tweetDateLabel.text = tweet.createdDatePretty;
     [self.userImageView setImageWithURLRequest:tweet.user.profileImageRequest
                               placeholderImage:nil success:nil failure:nil];

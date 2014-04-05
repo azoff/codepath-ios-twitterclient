@@ -50,6 +50,8 @@
 		C9B01AFB18EFAE4D0086E066 /* AZProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01AF918EFAE4D0086E066 /* AZProfileController.m */; };
 		C9B01AFC18EFAE4D0086E066 /* AZProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01AFA18EFAE4D0086E066 /* AZProfileController.xib */; };
 		C9B01B0418EFB39C0086E066 /* AZUserPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01B0318EFB39C0086E066 /* AZUserPageController.m */; };
+		C9B01B0818F0870D0086E066 /* AZUserImageSubPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01B0618F0870D0086E066 /* AZUserImageSubPageController.m */; };
+		C9B01B0918F0870D0086E066 /* AZUserImageSubPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01B0718F0870D0086E066 /* AZUserImageSubPageController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,9 @@
 		C9B01AFA18EFAE4D0086E066 /* AZProfileController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZProfileController.xib; path = controllers/AZProfileController.xib; sourceTree = "<group>"; };
 		C9B01B0218EFB39C0086E066 /* AZUserPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserPageController.h; path = controllers/AZUserPageController.h; sourceTree = "<group>"; };
 		C9B01B0318EFB39C0086E066 /* AZUserPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserPageController.m; path = controllers/AZUserPageController.m; sourceTree = "<group>"; };
+		C9B01B0518F0870D0086E066 /* AZUserImageSubPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserImageSubPageController.h; path = controllers/AZUserImageSubPageController.h; sourceTree = "<group>"; };
+		C9B01B0618F0870D0086E066 /* AZUserImageSubPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserImageSubPageController.m; path = controllers/AZUserImageSubPageController.m; sourceTree = "<group>"; };
+		C9B01B0718F0870D0086E066 /* AZUserImageSubPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZUserImageSubPageController.xib; path = controllers/AZUserImageSubPageController.xib; sourceTree = "<group>"; };
 		FFDD4DF9D02F4A8E9A7885D1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +307,9 @@
 				C9B01AFA18EFAE4D0086E066 /* AZProfileController.xib */,
 				C9B01B0218EFB39C0086E066 /* AZUserPageController.h */,
 				C9B01B0318EFB39C0086E066 /* AZUserPageController.m */,
+				C9B01B0518F0870D0086E066 /* AZUserImageSubPageController.h */,
+				C9B01B0618F0870D0086E066 /* AZUserImageSubPageController.m */,
+				C9B01B0718F0870D0086E066 /* AZUserImageSubPageController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -392,6 +400,7 @@
 				C9A61CFF18E5E5BB00BD617C /* Images.xcassets in Resources */,
 				C9B01AED18EF29AA0086E066 /* AZRootController.xib in Resources */,
 				C9B01AF718EF9B400086E066 /* AZMenuController.xib in Resources */,
+				C9B01B0918F0870D0086E066 /* AZUserImageSubPageController.xib in Resources */,
 				C9A61D3518E6097800BD617C /* AZLoginController.xib in Resources */,
 				C9A61D3A18E60B2E00BD617C /* AZHomeTimelineController.xib in Resources */,
 				C92FE4EF18E7F70100346805 /* AZTweetBanner.xib in Resources */,
@@ -469,6 +478,7 @@
 				C9B01B0418EFB39C0086E066 /* AZUserPageController.m in Sources */,
 				C92FE4D618E79F4300346805 /* AZUserBanner.m in Sources */,
 				C9A61D3918E60B2E00BD617C /* AZHomeTimelineController.m in Sources */,
+				C9B01B0818F0870D0086E066 /* AZUserImageSubPageController.m in Sources */,
 				C9B01AFB18EFAE4D0086E066 /* AZProfileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

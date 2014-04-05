@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AZUser.h"
 
 @interface AZProfileController : UIViewController
+
+@property (nonatomic) AZUser *user;
+- (id)initWithUser:(AZUser *)user;
 
 @end

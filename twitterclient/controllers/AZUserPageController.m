@@ -7,6 +7,7 @@
 //
 
 #import "AZUserPageController.h"
+#import "AZUserImageSubPageController.h"
 
 @interface AZUserPageController ()
 
@@ -14,36 +15,24 @@
 
 @implementation AZUserPageController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithUser:(AZUser *)user
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self.user = user;
+        self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [self setViewControllers:@[[AZUserImageSubPageController controllerWithUser:user]]
+                       direction:UIPageViewControllerNavigationDirectionForward
+                        animated:NO
+                      completion:nil];
     }
     return self;
 }
 
-- (void)viewDidLoad
++(id)controllerWithUser:(AZUser *)user
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    AZUserPageController *i = [self alloc];
+    return [i initWithUser:user];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

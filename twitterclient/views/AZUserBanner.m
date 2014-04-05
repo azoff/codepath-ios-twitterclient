@@ -29,7 +29,7 @@
     [self.userImageView setImageWithURLRequest:self.user.profileImageRequest
                               placeholderImage:nil success:nil failure:nil];
     self.userNameLabel.text = self.user.name;
-    self.userAliasLabel.text = self.user.screenName;
+    self.userAliasLabel.text = self.user.atName;
 }
 
 @end

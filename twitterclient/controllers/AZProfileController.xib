@@ -6,7 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZProfileController">
             <connections>
-                <outlet property="headerView" destination="5sA-YO-qHg" id="UlF-KT-Zfp"/>
+                <outlet property="headerView" destination="Nyd-aH-Ksq" id="o3L-SV-vfl"/>
+                <outlet property="timelineView" destination="YRF-hl-OiG" id="Tef-Mn-Eow"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,20 +16,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-YO-qHg">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyd-aH-Ksq" customClass="UIImageView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="P5n-5W-3Wu"/>
+                        <constraint firstAttribute="height" constant="200" id="EWn-Tr-Loy"/>
                     </constraints>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRF-hl-OiG">
+                    <rect key="frame" x="0.0" y="200" width="320" height="368"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="5sA-YO-qHg" secondAttribute="trailing" id="JlU-Hh-ddr"/>
-                <constraint firstItem="5sA-YO-qHg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lrp-2D-r1L"/>
-                <constraint firstItem="5sA-YO-qHg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g54-Ye-EaC"/>
+                <constraint firstAttribute="trailing" secondItem="Nyd-aH-Ksq" secondAttribute="trailing" id="Gj1-9F-i6V"/>
+                <constraint firstItem="YRF-hl-OiG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SGE-Ze-QLQ"/>
+                <constraint firstItem="YRF-hl-OiG" firstAttribute="top" secondItem="Nyd-aH-Ksq" secondAttribute="bottom" id="SRZ-2P-odc"/>
+                <constraint firstItem="Nyd-aH-Ksq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Uim-6w-wrS"/>
+                <constraint firstAttribute="bottom" secondItem="YRF-hl-OiG" secondAttribute="bottom" id="nTp-uU-Z5o"/>
+                <constraint firstItem="Nyd-aH-Ksq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oc2-Yl-6ze"/>
+                <constraint firstAttribute="trailing" secondItem="YRF-hl-OiG" secondAttribute="trailing" id="w2D-Ml-ZfL"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

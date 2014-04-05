@@ -11,10 +11,15 @@
 @interface AZUser : MUJSONResponseObject
 
 @property (nonatomic) NSString * name;
-@property (nonatomic) NSURL * profileImageUrl;
+@property (nonatomic, readonly) NSURL * profileImageUrl;
+@property (nonatomic, readonly) NSURL * profileBannerImageUrl;
+@property (nonatomic) NSString * profileImageUrlString;
+@property (nonatomic) NSString * profileBannerImageUrlString;
 @property (nonatomic) NSString * screenName;
 @property (nonatomic) NSNumber * twitterID;
 
 -(NSURLRequest *)profileImageRequest;
+-(NSURLRequest *)profileBannerImageRequest;
+-(NSString *)atName;
 
 @end

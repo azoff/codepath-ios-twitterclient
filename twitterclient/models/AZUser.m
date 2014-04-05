@@ -21,34 +21,39 @@
     if(self = [super init]) {
         self.propertyMap = @{
             @"id": @"twitterID",
-            @"profile_image_url": @"profileImageUrl",
+            @"profile_image_url": @"profileImageUrlString",
+            @"profile_banner_url": @"profileBannerImageUrlString",
             @"screen_name": @"screenName"
         };
     }
     return self;
 }
 
--(NSString *)screenName
+-(void)setProfileImageUrlString:(NSString *)profileImageUrlString
 {
-    return [NSString stringWithFormat:@"@%@", _screenName];
+    _profileImageUrlString = [profileImageUrlString stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
+    _profileImageUrl = [NSURL URLWithString:self.profileImageUrlString];
+}
+
+-(void)setProfileBannerImageUrlString:(NSString *)profileBannerImageUrlString
+{
+    _profileBannerImageUrlString = [profileBannerImageUrlString stringByAppendingString:@"/mobile_retina"];
+    _profileBannerImageUrl = [NSURL URLWithString:self.profileBannerImageUrlString];
+}
+
+-(NSString *)atName
+{
+    return [NSString stringWithFormat:@"@%@", self.screenName];
+}
+
+-(NSURLRequest *)profileBannerImageRequest
+{
+    return [NSURLRequest requestWithURL:self.profileBannerImageUrl];
 }
 
 -(NSURLRequest *)profileImageRequest
 {
     return [NSURLRequest requestWithURL:self.profileImageUrl];
-}
-
-- (void)setObjectValue:(id)object forPropertyName:(NSString *)propertyName withClassName:(NSString *)className
-{
-    Class propertyClass = NSClassFromString(className);
-    
-    // NSURL
-    if([propertyClass isSubclassOfClass:[NSURL class]])
-        if([object isKindOfClass:[NSString class]])
-            return [self setValue:[NSURL URLWithString:object] forKey:propertyName];
-    
-    [super setObjectValue:object forPropertyName:propertyName withClassName:className];
-    
 }
 
 @end
