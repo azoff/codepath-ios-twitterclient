@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AZTweet.h"
 
+extern NSString *AZTweetTableViewCellImageTapEvent;
+
 @interface AZTweetTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) AZTweet *tweet;

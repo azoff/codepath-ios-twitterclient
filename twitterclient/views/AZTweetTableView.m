@@ -7,6 +7,7 @@
 //
 
 #import "AZTweetTableView.h"
+#import "AZNotificationUtil.h"
 
 static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
 
@@ -33,8 +34,17 @@ static NSString *const CELL_NIB_NAME = @"AZTweetTableViewCell";
         temp.refreshControl = [[UIRefreshControl alloc] init];
         [self addSubview: temp.refreshControl];
         _refreshControl = temp.refreshControl;
+        [AZNotificationUtil onEventWithName:AZTweetTableViewCellImageTapEvent observer:self selector:@selector(didTapProfileImage:)];
     }
     return self;
+}
+
+- (void)didTapProfileImage:(NSNotification *)notification
+{
+    if (![self.delegate respondsToSelector:@selector(tweetTableViewDidTapProfile:)])
+        return;
+    AZTweetTableViewCell *cell = notification.object;
+    [self.delegate tweetTableViewDidTapProfile:cell.tweet.user];
 }
 
 - (AZTweetTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath withTweet:(AZTweet *)tweet

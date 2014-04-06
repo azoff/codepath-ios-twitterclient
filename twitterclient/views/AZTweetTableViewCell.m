@@ -9,8 +9,11 @@
 #import "AZTweetTableViewCell.h"
 #import "AZTwitterClient.h"
 #import "UIImageView+AFNetworking.h"
+#import "AZNotificationUtil.h"
 #import "AZErrorUtil.h"
 #import "AZTweetBanner.h"
+
+NSString *AZTweetTableViewCellImageTapEvent = @"AZTweetTableViewCellImageTapEvent";
 
 @interface AZTweetTableViewCell ()
 
@@ -35,6 +38,10 @@
     [self.userImageView setImageWithURLRequest:tweet.user.profileImageRequest
                               placeholderImage:nil success:nil failure:nil];
     self.tweetBanner.tweet = tweet;
+    
+    id gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImageTap:)];
+    [self.userImageView addGestureRecognizer:gest];
+    
 }
 
 -(CGFloat)heightForTweet:(AZTweet *)tweet
@@ -46,6 +53,11 @@
                                   attributes:@{NSFontAttributeName: self.tweetTextLabel.font}
                                      context:nil];
     return MAX(rect.size.height + 50, 70);
+}
+
+- (void)onImageTap:(id)sender
+{
+    [AZNotificationUtil triggerEventWithName:AZTweetTableViewCellImageTapEvent data:self];
 }
 
 @end

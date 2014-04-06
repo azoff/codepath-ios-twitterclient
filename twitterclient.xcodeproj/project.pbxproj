@@ -54,6 +54,8 @@
 		C9B01B0918F0870D0086E066 /* AZUserImageSubPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01B0718F0870D0086E066 /* AZUserImageSubPageController.xib */; };
 		C9B01B0D18F0AC160086E066 /* AZUserDescSubPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01B0B18F0AC160086E066 /* AZUserDescSubPageController.m */; };
 		C9B01B0E18F0AC160086E066 /* AZUserDescSubPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01B0C18F0AC160086E066 /* AZUserDescSubPageController.xib */; };
+		C9B01B1218F1F5980086E066 /* AZUserTweetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B01B1018F1F5980086E066 /* AZUserTweetsController.m */; };
+		C9B01B1318F1F5980086E066 /* AZUserTweetsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B01B1118F1F5980086E066 /* AZUserTweetsController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,9 @@
 		C9B01B0A18F0AC160086E066 /* AZUserDescSubPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserDescSubPageController.h; path = controllers/AZUserDescSubPageController.h; sourceTree = "<group>"; };
 		C9B01B0B18F0AC160086E066 /* AZUserDescSubPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserDescSubPageController.m; path = controllers/AZUserDescSubPageController.m; sourceTree = "<group>"; };
 		C9B01B0C18F0AC160086E066 /* AZUserDescSubPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZUserDescSubPageController.xib; path = controllers/AZUserDescSubPageController.xib; sourceTree = "<group>"; };
+		C9B01B0F18F1F5980086E066 /* AZUserTweetsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserTweetsController.h; path = controllers/AZUserTweetsController.h; sourceTree = "<group>"; };
+		C9B01B1018F1F5980086E066 /* AZUserTweetsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserTweetsController.m; path = controllers/AZUserTweetsController.m; sourceTree = "<group>"; };
+		C9B01B1118F1F5980086E066 /* AZUserTweetsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZUserTweetsController.xib; path = controllers/AZUserTweetsController.xib; sourceTree = "<group>"; };
 		FFDD4DF9D02F4A8E9A7885D1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,6 +323,9 @@
 				C9B01B0A18F0AC160086E066 /* AZUserDescSubPageController.h */,
 				C9B01B0B18F0AC160086E066 /* AZUserDescSubPageController.m */,
 				C9B01B0C18F0AC160086E066 /* AZUserDescSubPageController.xib */,
+				C9B01B0F18F1F5980086E066 /* AZUserTweetsController.h */,
+				C9B01B1018F1F5980086E066 /* AZUserTweetsController.m */,
+				C9B01B1118F1F5980086E066 /* AZUserTweetsController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				C9B01AFC18EFAE4D0086E066 /* AZProfileController.xib in Resources */,
 				C9A61CF718E5E5BB00BD617C /* InfoPlist.strings in Resources */,
 				C92FE4D718E79F4300346805 /* AZUserBanner.xib in Resources */,
+				C9B01B1318F1F5980086E066 /* AZUserTweetsController.xib in Resources */,
 				C92FE4CF18E798B300346805 /* AZComposeTweetController.xib in Resources */,
 				C92FE4BF18E6B1EF00346805 /* AZTweetTableViewCell.xib in Resources */,
 				C9A61CFF18E5E5BB00BD617C /* Images.xcassets in Resources */,
@@ -490,6 +499,7 @@
 				C9A61D3918E60B2E00BD617C /* AZHomeTimelineController.m in Sources */,
 				C9B01B0818F0870D0086E066 /* AZUserImageSubPageController.m in Sources */,
 				C9B01AFB18EFAE4D0086E066 /* AZProfileController.m in Sources */,
+				C9B01B1218F1F5980086E066 /* AZUserTweetsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,7 +62,7 @@
     }
     
     if (controllerClass == nil) {
-        [AZErrorUtil showError:[AZErrorUtil errorWithDomain:@"menu" code:code description:@"Unimplemented Menu"] view:self.view];
+        [AZErrorUtil showError:[AZErrorUtil errorWithDomain:@"menu" code:code description:@"Not A Required User Story :)"] view:self.view];
     } else {
         [self changeRootViewController:controllerClass];
     }

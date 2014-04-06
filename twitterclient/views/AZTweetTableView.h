@@ -10,6 +10,12 @@
 #import "AZTweet.h"
 #import "AZTweetTableViewCell.h"
 
+@protocol AZTweetTableViewDelegate <UITableViewDelegate>
+
+@optional
+-(void)tweetTableViewDidTapProfile:(AZUser *)user;
+
+@end
 
 @interface AZTweetTableView : UITableView
 
@@ -17,6 +23,7 @@
 - (CGFloat)heightForTweet:(AZTweet *)tweetOrNil;
 
 @property (nonatomic, weak, readonly) UIRefreshControl *refreshControl;
+@property (nonatomic, weak) id<AZTweetTableViewDelegate> delegate;
 
 - (void)addRefreshTarget:(id)target action:(SEL)action;
 

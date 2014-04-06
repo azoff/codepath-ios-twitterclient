@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AZTweetTableView.h"
 
-@interface AZHomeTimelineController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AZHomeTimelineController : UIViewController<UITableViewDataSource, AZTweetTableViewDelegate>
 
 @end

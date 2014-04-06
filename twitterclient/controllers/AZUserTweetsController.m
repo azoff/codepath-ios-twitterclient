@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jonathan Azoff. All rights reserved.
 //
 
-#import "AZHomeTimelineController.h"
+#import "AZUserTweetsController.h"
 #import "AZTwitterClient.h"
 #import "AZErrorUtil.h"
 #import "MBProgressHUD.h"
@@ -19,7 +19,7 @@
 static NSInteger const MAX_ALLOWED_TWEETS = 800;
 static NSInteger const SCROLL_THRESHOLD   = 5;
 
-@interface AZHomeTimelineController ()
+@interface AZUserTweetsController ()
 
 @property (nonatomic) NSMutableArray *tweets;
 @property (nonatomic) NSInteger tweetCount;
@@ -28,15 +28,22 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
 
 @end
 
-@implementation AZHomeTimelineController
+@implementation AZUserTweetsController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithUser:(AZUser *)user
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [self init];
     if (self) {
-        self.title = @"Home";
+        self.user = user;
+        self.title = user.screenName;
     }
     return self;
+}
+
++(id)controllerWithUser:(AZUser *)user
+{
+    AZUserTweetsController *c = [self alloc];
+    return [c initWithUser:user];
 }
 
 - (MBProgressHUD *)progressHUD
@@ -93,7 +100,9 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
     if (self.tweets.count > 0)
         params[@"max_id"] = [self.tweets.lastObject twitterID];
     
-    [client homeTimelineWithParameters:params success:^(NSArray *tweets) {
+    [client userTimelineWithUser:self.user
+                      parameters:params
+                         success:^(NSArray *tweets) {
         [self.tweets addObjectsFromArray:tweets];
         [self.tweetTableView reloadData];
         [self.tweetTableView.refreshControl endRefreshing];
@@ -154,12 +163,6 @@ static NSInteger const SCROLL_THRESHOLD   = 5;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id controller = [[AZTweetDetailsController alloc] initWithTweet:[self tweetForRowAtIndexPath:indexPath]];
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
--(void)tweetTableViewDidTapProfile:(AZUser *)user
-{
-    id controller = [[AZProfileController alloc] initWithUser:user];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

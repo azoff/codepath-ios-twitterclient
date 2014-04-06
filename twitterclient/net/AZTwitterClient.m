@@ -142,6 +142,20 @@ static NSString * const API_CALLBACK = @"oob";
                         failure:failure];
 }
 
+-(void)userTimelineWithUser:(AZUser *)user
+                parameters:(NSDictionary *)parameters
+                    success:(void (^)(NSArray *tweets))success
+                    failure:(void (^)(NSError *error))failure
+{
+    parameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [parameters setValue:user.twitterID forKey:@"user_id"];
+    [self GETresponseObjectOfClass:[AZTweet class]
+                          fromPath:@"statuses/user_timeline"
+                    withParameters:parameters
+                           success:success
+                           failure:failure];
+}
+
 -(void)verifyCredentialsWithSuccess:(void (^)(AZUser *user))success
                             failure:(void (^)(NSError *error))failure
 {

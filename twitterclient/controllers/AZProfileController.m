@@ -11,7 +11,8 @@
 #import "AZNotificationUtil.h"
 #import "AZRootController.h"
 #import "AZUserPageController.h"
-#import "AZHomeTimelineController.h"
+#import "AZUserTweetsController.h"
+#import "AZComposeTweetController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface AZProfileController ()
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersLabel;
+@property (nonatomic) BOOL loaded;
 
 @end
 
@@ -51,38 +53,48 @@
 {
     if (!AZCurrentUser.currentUser) return NO;
     self.user = AZCurrentUser.currentUser;
+    [self viewDidLoad];
     return YES;
-}
-
--(void)setUser:(AZUser *)user
-{
-    _user = user;
-    if (user == nil) return;    
-    self.title = user.screenName;
-    self.timelineController = [[AZHomeTimelineController alloc] init];
-    self.headerController = [AZUserPageController controllerWithUser:user];
-    [self.headerView setImageWithURLRequest:user.profileBannerImageRequest placeholderImage:nil success:nil failure:nil];
-    self.followersLabel.text = [self.user.followersCount stringValue];
-    self.followingLabel.text = [self.user.followingCount stringValue];
-    self.tweetsLabel.text = [self.user.tweetCount stringValue];
-    [self addChildViewController:self.headerController];
-    [self addChildViewController:self.timelineController];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:[AZRootController controller] action:@selector(toggleMenuView)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(compose)];
 }
+
+-(void)compose
+{
+    id controller = [[AZComposeTweetController alloc] initWithTweet:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     if (self.user == nil) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:[AZRootController controller] action:@selector(toggleMenuView)];   
         if (![self useCurrentUser])
             [AZNotificationUtil onEventWithName:AZCurrentUserEventLoaded observer:self selector:@selector(useCurrentUser)];
 
     }
+    
+    if (self.user == nil || self.loaded) return;
+
+    self.title = self.user.screenName;
+    self.timelineController = [AZUserTweetsController controllerWithUser:self.user];
+    self.headerController = [AZUserPageController controllerWithUser:self.user];
+    [self.headerView setImageWithURLRequest:self.user.profileBannerImageRequest
+                           placeholderImage:nil success:nil failure:nil];
+    self.followersLabel.text = [self.user.followersCount stringValue];
+    self.followingLabel.text = [self.user.followingCount stringValue];
+    self.tweetsLabel.text = [self.user.tweetCount stringValue];
+    [self addChildViewController:self.headerController];
+    [self addChildViewController:self.timelineController];
+
+    
     self.headerController.view.frame = self.headerView.bounds;
     [self.headerView addSubview:self.headerController.view];
     [self.headerController didMoveToParentViewController:self];
@@ -90,6 +102,9 @@
     self.timelineController.view.frame = self.timelineView.bounds;
     [self.timelineView addSubview:self.timelineController.view];
     [self.timelineController didMoveToParentViewController:self];
+    
+    self.loaded = true;
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -40,5 +40,9 @@ extern NSString * const AZTwitterClientEventDeauthorized;
 -(void)destroyRetweet:(AZTweet *)tweet
             success:(void (^)(AZTweet *tweet))success
             failure:(void (^)(NSError *error))failure;
+-(void)userTimelineWithUser:(AZUser *)user
+                 parameters:(NSDictionary *)parameters
+                    success:(void (^)(NSArray *tweets))success
+                    failure:(void (^)(NSError *error))failure;
 
 @end
