@@ -8,12 +8,6 @@
 
 #import "AZUser.h"
 
-@interface MUJSONResponseObject (AZUser)
-
-- (void)setObjectValue:(id)object forPropertyName:(NSString *)propertyName withClassName:(NSString *)className;
-
-@end
-
 @implementation AZUser
 
 - (instancetype)init
@@ -23,7 +17,11 @@
             @"id": @"twitterID",
             @"profile_image_url": @"profileImageUrlString",
             @"profile_banner_url": @"profileBannerImageUrlString",
-            @"screen_name": @"screenName"
+            @"screen_name": @"screenName",
+            @"statuses_count": @"tweetCount",
+            @"friends_count": @"followingCount",
+            @"followers_count": @"followersCount",
+            @"url": @"urlString"
         };
     }
     return self;

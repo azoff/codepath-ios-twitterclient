@@ -21,6 +21,9 @@
 
 @property (nonatomic) UIPageViewController *headerController;
 @property (nonatomic) UIViewController *timelineController;
+@property (weak, nonatomic) IBOutlet UILabel *tweetsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followersLabel;
 
 @end
 
@@ -59,6 +62,9 @@
     self.timelineController = [[AZHomeTimelineController alloc] init];
     self.headerController = [AZUserPageController controllerWithUser:user];
     [self.headerView setImageWithURLRequest:user.profileBannerImageRequest placeholderImage:nil success:nil failure:nil];
+    self.followersLabel.text = [self.user.followersCount stringValue];
+    self.followingLabel.text = [self.user.followingCount stringValue];
+    self.tweetsLabel.text = [self.user.tweetCount stringValue];
     [self addChildViewController:self.headerController];
     [self addChildViewController:self.timelineController];
 }

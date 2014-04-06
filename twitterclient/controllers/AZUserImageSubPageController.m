@@ -64,7 +64,7 @@
                                     toItem:self.view
                                  attribute:NSLayoutAttributeCenterY
                                 multiplier:1.0
-                                  constant:0.0];
+                                  constant:0];
     [self.view addConstraint:centerYConstraint];
     
     

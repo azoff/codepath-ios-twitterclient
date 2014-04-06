@@ -13,10 +13,15 @@
 @property (nonatomic) NSString * name;
 @property (nonatomic, readonly) NSURL * profileImageUrl;
 @property (nonatomic, readonly) NSURL * profileBannerImageUrl;
+@property (nonatomic) NSString * urlString;
 @property (nonatomic) NSString * profileImageUrlString;
 @property (nonatomic) NSString * profileBannerImageUrlString;
 @property (nonatomic) NSString * screenName;
+@property (nonatomic) NSString * description;
 @property (nonatomic) NSNumber * twitterID;
+@property (nonatomic) NSNumber * followersCount;
+@property (nonatomic) NSNumber * followingCount;
+@property (nonatomic) NSNumber * tweetCount;
 
 -(NSURLRequest *)profileImageRequest;
 -(NSURLRequest *)profileBannerImageRequest;

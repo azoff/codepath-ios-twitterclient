@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x87-Px-M4r" userLabel="Name">
-                    <rect key="frame" x="0.0" y="103" width="320" height="27"/>
+                    <rect key="frame" x="0.0" y="53" width="320" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="User Name"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="@alias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZA-CC-oCZ" userLabel="Alias">
-                    <rect key="frame" x="0.0" y="135" width="320" height="21"/>
+                    <rect key="frame" x="0.0" y="85" width="320" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=""/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxF-uk-rqE">
-                    <rect key="frame" x="136" y="50" width="48" height="48"/>
+                    <rect key="frame" x="136" y="0.0" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="6J1-lp-gNP"/>
@@ -44,7 +44,7 @@
             </subviews>
             <constraints>
                 <constraint firstItem="x87-Px-M4r" firstAttribute="top" secondItem="hxF-uk-rqE" secondAttribute="bottom" constant="5" id="0JG-55-rif"/>
-                <constraint firstItem="hxF-uk-rqE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" placeholder="YES" id="5EC-NQ-jCF"/>
+                <constraint firstItem="hxF-uk-rqE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" placeholder="YES" id="5EC-NQ-jCF"/>
                 <constraint firstItem="x87-Px-M4r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FgW-Hv-19m"/>
                 <constraint firstItem="bZA-CC-oCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HxD-Lv-aAl"/>
                 <constraint firstItem="bZA-CC-oCZ" firstAttribute="top" secondItem="x87-Px-M4r" secondAttribute="bottom" constant="5" id="KzJ-1b-nr5"/>
